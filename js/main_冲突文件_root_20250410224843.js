@@ -58,7 +58,7 @@ const statusText = document.querySelector('.status-text');
 
 function connectWebSocket() {
     try {
-        socket = new WebSocket('ws://localhost:8080');
+        socket = new WebSocket('wss://your-secure-server-address:8080'); // 使用wss协议进行安全连接
 
         socket.onopen = () => {
             statusDot.classList.add('connected');
