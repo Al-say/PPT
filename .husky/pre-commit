@@ -1,0 +1,19 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# 检查暂存区的文件
+echo "🔍 Checking staged files..."
+
+# 运行lint-staged
+npx lint-staged
+
+# 运行测试
+echo "🧪 Running tests..."
+npm test -- --bail --findRelatedTests
+
+# 检查安全漏洞
+echo "🔒 Running security checks..."
+npm run security-check
+
+# 如果所有检查都通过
+echo "✅ Pre-commit checks passed!"

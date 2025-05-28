@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="现代化的演示文稿平台，提供丰富的演示功能">
+    <title>演示系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">跳转到主要内容</a>
+    <nav class="navbar" role="navigation" aria-label="主导航">
+        <div class="logo" role="banner">演示系统</div>
+        <button class="hamburger" aria-label="切换导航菜单" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" role="menu">
+            <a href="#home" class="active">首页</a>
+            <a href="#slides">幻灯片</a>
+            <a href="#about">关于</a>
+            <a href="#" class="register-btn">注册</a>
+            <a href="#" class="login-btn">登录</a>
+        </div>
+    </nav>
+
+    <main id="main" role="main">
+        <section id="home" class="hero">
+            <h1>欢迎来到演示系统</h1>
+            <p>一个现代化的演示文稿平台</p>
+            <button class="cta-button">开始浏览</button>
+        </section>
+
+        <section id="slides" class="presentations">
+            <h2>最近的演示文稿</h2>
+            <div id="recentlyViewed" class="recently-viewed" style="display: none;">
+                <h3>最近浏览</h3>
+                <div class="recent-grid"></div>
+            </div>
+            <div class="presentation-grid">
+                <div class="presentation-card">
+                    <div class="thumbnail" style="background-image: url('https://images.unsplash.com/photo-1611544198771-0d503fd4d666?q=80&w=600'); filter: brightness(0.9);" aria-label="春节传统庆祝场景"></div>
+                    <div class="content">
+                        <h3>春节</h3>
+                        <p>中国传统节日介绍</p>
+                        <div class="actions">
+                            <a href="sections/toc.html?presentation=春节" class="view-btn">查看演示</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="presentation-card">
+                    <div class="thumbnail" style="background-image: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?q=80&w=600'); filter: brightness(0.9);" aria-label="五四运动历史照片"></div>
+                    <div class="content">
+                        <h3>五四运动</h3>
+                        <p>历史事件回顾</p>
+                        <div class="actions">
+                            <a href="sections/toc.html?presentation=五四运动" class="view-btn">查看演示</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="presentation-card">
+                    <div class="thumbnail" style="background-image: url('https://images.unsplash.com/photo-1560330203-ac840213492f?q=80&w=600'); filter: brightness(0.9);" aria-label="小满节气农事场景"></div>
+                    <div class="content">
+                        <h3>小满</h3>
+                        <p>二十四节气与农事习俗</p>
+                        <div class="actions">
+                            <a href="sections/xiaoman.html" class="view-btn">查看演示</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>关于我们</h2>
+            <p>我们致力于提供优质的演示文稿平台，让分享知识变得更加简单和有趣。</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 演示系统. All rights reserved.</p>
+    </footer>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>注册</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm" class="register-form">
+                    <div class="form-group">
+                        <label for="reg-username">用户名</label>
+                        <input type="text" id="reg-username" name="username" required minlength="3" maxlength="20" pattern="[a-zA-Z0-9_-]+" aria-describedby="username-error">
+                        <span class="error" id="username-error">用户名应为3-20个字符，只能包含字母、数字、下划线和连字符</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email">电子邮箱</label>
+                        <input type="email" id="reg-email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" aria-describedby="email-error">
+                        <span class="error" id="email-error">请输入有效的电子邮箱地址</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">密码</label>
+                        <input type="password" id="reg-password" name="password" required minlength="6" aria-describedby="password-error">
+                        <small>密码长度至少6位</small>
+                        <span class="error" id="password-error">密码必须至少包含6个字符</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-confirm-password">确认密码</label>
+                        <input type="password" id="reg-confirm-password" name="confirmPassword" required aria-describedby="confirm-password-error">
+                        <span class="error" id="confirm-password-error">两次输入的密码不匹配</span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">注册</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>登录</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <input type="text" id="username" name="username" required minlength="3" aria-describedby="login-username-error">
+                        <span class="error" id="login-username-error">请输入有效的用户名</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password" id="password" name="password" required minlength="6" aria-describedby="login-password-error">
+                        <span class="error" id="login-password-error">请输入有效的密码</span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">登录</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <template id="recentItemTemplate">
+        <div class="recent-item">
+            <a href="" class="recent-link">
+                <span class="title"></span>
+                <time class="view-time"></time>
+            </a>
+        </div>
+    </template>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
